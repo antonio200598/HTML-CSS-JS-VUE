@@ -84,7 +84,10 @@ const app = {
 
     handleSubmit(event) {
       event.preventDefault();
-      this.clients.push(this.form);
+      if (this.form.age < "18") {
+        return alert("Idade Mínima é 18 anos");
+      }
+      this.clients.push({...this.form});
 
       window.localStorage.setItem(
         "clients",
